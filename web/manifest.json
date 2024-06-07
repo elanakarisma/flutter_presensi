@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
     "name": "presensi_app",
     "short_name": "presensi_app",
+=======
+    "name": "flutter_presensi",
+    "short_name": "flutter_presensi",
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

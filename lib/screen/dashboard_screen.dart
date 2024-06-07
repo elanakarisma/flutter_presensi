@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:presensi/model/presensi.dart';
@@ -81,6 +82,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context){
     return Scaffold(
       backgroundColor: Colors.white,
+=======
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_presensi/screen/attandance_recap_screen.dart';
+
+class DashboardScreen extends StatelessWidget{
+  const DashboardScreen({super.key});
+
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -89,12 +103,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
               const SizedBox(
                 height: 24,
               ),
+<<<<<<< HEAD
               //Greetings
+=======
+              
+              // nama dan departemen
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
                     children : [
+<<<<<<< HEAD
                       ClipRRect(
                         borderRadius: BorderRadius.circular(50),
                         child: Image.network(
@@ -104,11 +124,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         )
                       ),
                       const SizedBox(width:10),
+=======
+                      Image.asset(
+                        'assets/images/user_profile.png',
+                        height: 84,),
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
                       Column( 
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
+<<<<<<< HEAD
                             name,
+=======
+                            'Elana Karisma',
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
                             textAlign: TextAlign.left,
                             style: GoogleFonts.manrope(
                               fontSize: 20,
@@ -117,7 +146,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             ),
                           ),
                           Text(
+<<<<<<< HEAD
                             dept,
+=======
+                            'IT Forensic',
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
                             style: GoogleFonts.manrope(
                               fontSize: 16,
                               color: const Color(0xFF263238),
@@ -127,6 +160,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       )
                     ]  
                   ),
+<<<<<<< HEAD
+=======
+
+                  // notifikasi
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
                   Stack(
                     children: [
                       IconButton(
@@ -144,11 +182,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           height: 15,
                           width: 15,
                           decoration: BoxDecoration(
+<<<<<<< HEAD
                             color: const Color(0xFFEF6497),
                             borderRadius: BorderRadius.circular(15 / 2)),
                             child: Center(
                               child: Text(
                                 "2",
+=======
+                            color: Color.fromARGB(255, 250, 0, 92),
+                            borderRadius: BorderRadius.circular(15 / 2)),
+                            child: Center(
+                              child: Text(
+                                "10",
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
                                 style: GoogleFonts.mPlus1p(
                                   color: Colors.white,
                                   fontSize: 10,
@@ -162,6 +208,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   ),
                 ],
               ),
+<<<<<<< HEAD
+=======
+
+              // row kehadiran dan rekap
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -173,11 +224,21 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       fontWeight: FontWeight.bold
                     ),
                   ),
+<<<<<<< HEAD
                   GestureDetector(
                     onTap: (){
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) => const AttandanceRecapScreen(),
+=======
+
+                  GestureDetector( // untuk mendeteksi interaksi pengguna seperti ketukan, tekan lama, sentuhan
+                    onTap: (){
+                      Navigator.of(context).push( //fungsi push untuk melakukan navigasi ke halaman baru
+                        MaterialPageRoute( //mengatur animasi transisi dan menentukan halaman tujuan dan mengirimkan data
+                        //builder digunakan membuat tampilan halaman yang akan ditampilkan.
+                          builder: (context) => const AttandanceRecapScreen(),  //memanggil AttandanceRecapScreen di dalam file attandance_recap_screen
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
                         ),
                       );
                     },
@@ -191,6 +252,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ],
               ),
               const SizedBox(height: 10,),
+<<<<<<< HEAD
               FutureBuilder<Presensi>(
                 future:fetchPresensi(nik, getTodayDate()),
                 builder: (context, snapshot) {
@@ -321,11 +383,141 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     isScrollControlled: true,
                     builder: (context){
                       return attandanceScreen();
+=======
+
+              // row kehadiran
+              Row(
+                children: [
+
+                  // coding kehadiran masuk
+                  Expanded(
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        side: const BorderSide(color: Color.fromARGB(255, 219, 226, 228), width: 1.0), 
+                        borderRadius: BorderRadius.circular(10.0), 
+                      ),
+                      color: Colors.white, 
+                      child: Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(children: [
+                              Container(
+                                width: 48,
+                                height: 48,
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  color: const Color.fromARGB(35, 48, 134, 254),
+                                  borderRadius: BorderRadius.circular(10)
+                                ),
+                                child: SvgPicture.asset('assets/svg/login_outlined.svg'),
+                              ),
+                              const SizedBox(width: 10,),
+                              Text(
+                                'Masuk',
+                                style: GoogleFonts.lexend(
+                                  fontSize: 16,
+                                  color: const Color(0xFF101317),
+                                ),
+                                textAlign: TextAlign.left,)
+                            ],),
+                            const SizedBox(height: 10),
+                            Text(
+                              '07:00',
+                              style: GoogleFonts.lexend(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                                color: const Color(0xFF101317),
+                              ),),
+                            Text(
+                              'Tepat Waktu',
+                              style: GoogleFonts.lexend(
+                                fontSize: 16,
+                                color:const Color(0xFF101317),
+                              ),),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 10,),
+
+                  // coding kehadiran keluar
+                  Expanded(
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        side: const BorderSide(color: Color.fromARGB(255, 219, 226, 228), width: 1.0), // Gray border for the Card
+                        borderRadius: BorderRadius.circular(10.0), 
+                      ),
+                      color: Colors.white, 
+                      child: Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(children: [
+                              Container(
+                                width: 48,
+                                height: 48,
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  color: const Color.fromARGB(35, 48, 134, 254),
+                                  borderRadius: BorderRadius.circular(10)
+                                ),
+                                child: SvgPicture.asset('assets/svg/logout_outlined.svg',),
+                              ),
+                              const SizedBox(width: 10,),
+                              Text(
+                                'Keluar',
+                                style: GoogleFonts.lexend(
+                                  fontSize: 16,
+                                  color: const Color(0xFF101317),
+                                ),
+                                textAlign: TextAlign.left,)
+                            ],),
+                            const SizedBox(height: 10),
+                            Text(
+                              '--:--',
+                              style: GoogleFonts.lexend(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                                color: const Color(0xFF101317),
+                              ),),
+                            Text(
+                              'Pulang',
+                              style: GoogleFonts.lexend(
+                                fontSize: 16,
+                                color:const Color(0xFF101317),
+                              ),),
+                          ],
+                        ),
+                      ),
+                
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10,),
+
+              // button untuk tekan presensi keluar
+              ElevatedButton(
+                onPressed: (){
+                  showModalBottomSheet( //fungsi untuk membuat pop up dari presensi masuk
+                    context: context, 
+                    isScrollControlled: true,
+                    builder: (context){
+                      return attandanceScreen(); //fungsi yang mengembalikan widget untuk menampilkan antarmuka pengguna (UI)
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
                     },
                   );
                 },
                 style: ElevatedButton.styleFrom(
+<<<<<<< HEAD
                   minimumSize: const Size(double.infinity, 50), // width and height
+=======
+                  minimumSize: const Size(double.infinity, 50), 
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
                   backgroundColor: const Color(0xFF12A3DA),
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
@@ -333,6 +525,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   )
                 ),
                 child: Row(
+<<<<<<< HEAD
                   mainAxisSize: MainAxisSize.min, // Use min to prevent the Row from expanding
                   children: [
                     const Icon(
@@ -343,6 +536,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     const SizedBox(width: 8), // Spacing between icon and text
                     Text(
                       'Tekan untuk presensi keluar',
+=======
+                  mainAxisSize: MainAxisSize.min, 
+                  children: [
+                    const Icon(
+                      Icons.circle_outlined, 
+                      color: Colors.white, 
+                      size: 24.0, 
+                    ),
+                    const SizedBox(width: 8), 
+                    Text(
+                      'Tekan untuk presensi',
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
                       style: GoogleFonts.manrope(
                         fontSize: 20,
                         fontWeight: FontWeight.bold
@@ -352,6 +557,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
               ), 
               const SizedBox(height: 10,),
+<<<<<<< HEAD
+=======
+
+              // card izin
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
               Row(
                 children: [
                   Expanded(
@@ -388,6 +598,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   color: Colors.white,
                                 ),
                               ),
+<<<<<<< HEAD
+=======
+
+                              // button ajukan izin
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
                               const SizedBox(height: 20),
                               ElevatedButton(
                                 onPressed: () {},
@@ -414,6 +629,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     ),
                   ),
                   const SizedBox(width: 10,),
+<<<<<<< HEAD
+=======
+
+                  // card cuti
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
                   Expanded(
                     child: Card(
                       clipBehavior: Clip.antiAlias,
@@ -449,6 +669,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 ),
                               ),
                               const SizedBox(height: 40),
+<<<<<<< HEAD
+=======
+
+                              // button ajukan cuti
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
                               ElevatedButton(
                                 onPressed: () {},
                                 style: ElevatedButton.styleFrom(
@@ -481,8 +706,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ),
     );
   }
+<<<<<<< HEAD
 
   Widget attandanceScreen() {
+=======
+  
+  Widget attandanceScreen() { //fungsi attandanceScreen dipanggil
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -570,15 +800,26 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
               ),
               const SizedBox(height: 8),
+<<<<<<< HEAD
               Card(
                 child: Container(
                   height: 200, // Set your desired height
+=======
+
+              // file gambar
+              Card(
+                child: Container(
+                  height: 200, 
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
                   alignment: Alignment.center,
                   child: ElevatedButton.icon(
                     icon: const Icon(Icons.camera_alt),
                     label: const Text('Ambil Gambar'),
                     onPressed: () {
+<<<<<<< HEAD
                       // Implement your image picking logic
+=======
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
@@ -587,9 +828,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
               ),
               const SizedBox(height: 16),
+<<<<<<< HEAD
               ElevatedButton(
                 onPressed: () {
                   // Implement your check-in logic
+=======
+
+              // button hadir
+              ElevatedButton(
+                onPressed: () {
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
                 },
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(double.infinity, 50),

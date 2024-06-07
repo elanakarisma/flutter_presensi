@@ -26,7 +26,11 @@ class _AttandanceRecapSreenApp extends State<AttandanceRecapScreen>{
             color:const Color(0xff101317),
           ),
         ),
+<<<<<<< HEAD
         backgroundColor: Colors.white,
+=======
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
         leading: IconButton(
           onPressed: (){
             Navigator.pop(context);
@@ -34,6 +38,11 @@ class _AttandanceRecapSreenApp extends State<AttandanceRecapScreen>{
           icon: const Icon(Icons.arrow_back_ios)
         ),
       ),
+<<<<<<< HEAD
+=======
+
+      
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(left:16.0,top:0.0,right:16.0,bottom:16.0),
@@ -41,11 +50,21 @@ class _AttandanceRecapSreenApp extends State<AttandanceRecapScreen>{
             children: [
               Row(
                 children: [
+<<<<<<< HEAD
                   Expanded(
                     child: Card(
                       shape: RoundedRectangleBorder(
                           side: const BorderSide(color: Color (0xff3498DB), width: 1.0), // Gray border for the Card
                           borderRadius: BorderRadius.circular(10.0), // Rounded corners
+=======
+
+                  // coding jumlah izin
+                  Expanded(
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                          side: const BorderSide(color: Color (0xff3498DB), width: 1.0), 
+                          borderRadius: BorderRadius.circular(10.0),
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
                         ),
                         color: const Color(0xffE5F3FC), 
                         child: Padding(
@@ -53,6 +72,10 @@ class _AttandanceRecapSreenApp extends State<AttandanceRecapScreen>{
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+<<<<<<< HEAD
+=======
+
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
                               Text(
                                 'Jumlah Izin',
                                 style: GoogleFonts.manrope(
@@ -62,8 +85,14 @@ class _AttandanceRecapSreenApp extends State<AttandanceRecapScreen>{
                                 )
                               ),
                               const SizedBox(height:10.0,),
+<<<<<<< HEAD
                               Text(
                                 '0',
+=======
+
+                              Text(
+                                '1',
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
                                 style: GoogleFonts.lexend(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
@@ -71,16 +100,30 @@ class _AttandanceRecapSreenApp extends State<AttandanceRecapScreen>{
                                 ),
                               )
                             ],
+<<<<<<< HEAD
+=======
+
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
                           ),
                         ),
                     )
                   ),
                   const SizedBox(width: 8.0,),
+<<<<<<< HEAD
                   Expanded(
                     child: Card(
                       shape: RoundedRectangleBorder(
                           side: const BorderSide(color: Color (0xffA3D139), width: 1.0), // Gray border for the Card
                           borderRadius: BorderRadius.circular(10.0), // Rounded corners
+=======
+
+                  // coding jumlah hadir
+                  Expanded(
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                          side: const BorderSide(color: Color (0xffA3D139), width: 1.0), 
+                          borderRadius: BorderRadius.circular(10.0), 
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
                         ),
                         color: const Color(0xffEEF8D6), 
                         child: Padding(
@@ -98,7 +141,11 @@ class _AttandanceRecapSreenApp extends State<AttandanceRecapScreen>{
                               ),
                               const SizedBox(height:10.0,),
                               Text(
+<<<<<<< HEAD
                                 '2',
+=======
+                                '10',
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
                                 style: GoogleFonts.lexend(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
@@ -113,8 +160,17 @@ class _AttandanceRecapSreenApp extends State<AttandanceRecapScreen>{
                 ],
               ),
               const SizedBox(height: 10,),
+<<<<<<< HEAD
               Row(
                 children: [
+=======
+
+
+              Row(
+                children: [
+
+                  // jumlah sakit
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
                   Expanded(
                     child: Card(
                       shape: RoundedRectangleBorder(
@@ -137,7 +193,11 @@ class _AttandanceRecapSreenApp extends State<AttandanceRecapScreen>{
                               ),
                               const SizedBox(height:10.0,),
                               Text(
+<<<<<<< HEAD
                                 '0',
+=======
+                                '3',
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
                                 style: GoogleFonts.lexend(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
@@ -150,6 +210,11 @@ class _AttandanceRecapSreenApp extends State<AttandanceRecapScreen>{
                     )
                   ),
                   const SizedBox(width: 8.0,),
+<<<<<<< HEAD
+=======
+
+                  // jumlah alpa
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
                   Expanded(
                     child: Card(
                       shape: RoundedRectangleBorder(
@@ -172,7 +237,11 @@ class _AttandanceRecapSreenApp extends State<AttandanceRecapScreen>{
                               ),
                               const SizedBox(height:10.0,),
                               Text(
+<<<<<<< HEAD
                                 '0',
+=======
+                                '2',
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
                                 style: GoogleFonts.lexend(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
@@ -186,6 +255,11 @@ class _AttandanceRecapSreenApp extends State<AttandanceRecapScreen>{
                   )
                 ],
               ),
+<<<<<<< HEAD
+=======
+
+              // kalender
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
               TableCalendar(
                 focusedDay: DateTime.now(), 
                 firstDay: DateTime.utc(2010,1,1), 
@@ -193,6 +267,11 @@ class _AttandanceRecapSreenApp extends State<AttandanceRecapScreen>{
                 headerStyle: const HeaderStyle(formatButtonVisible: false, titleCentered: true),
               ),
               const SizedBox(height: 10,),
+<<<<<<< HEAD
+=======
+
+              // row aktifitas dan lihat semua
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -222,6 +301,10 @@ class _AttandanceRecapSreenApp extends State<AttandanceRecapScreen>{
       )
     );
   }
+<<<<<<< HEAD
 }
 
   
+=======
+}
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca

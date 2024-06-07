@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 name: presensi
+=======
+name: flutter_presensi
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
 description: A new Flutter project.
 publish_to: 'none'
 version: 0.1.0
@@ -13,9 +17,12 @@ dependencies:
   google_fonts: ^4.0.1
   flutter_svg: ^2.0.6
   table_calendar: ^3.0.0
+<<<<<<< HEAD
   http: ^1.1.0
   shared_preferences: ^2.2.3
   intl : ^0.19.0
+=======
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
 
 dev_dependencies:
   flutter_test:
@@ -27,4 +34,8 @@ flutter:
 
   assets:
     - assets/images/
+<<<<<<< HEAD
     - assets/svgs/
+=======
+    - assets/svg/
+>>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
