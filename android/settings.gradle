@@ -10,7 +10,6 @@ pluginManagement {
 
     includeBuild("${settings.ext.flutterSdkPath}/packages/flutter_tools/gradle")
 
-<<<<<<< HEAD
     plugins {
         id "dev.flutter.flutter-gradle-plugin" version "1.0.0" apply false
     }
@@ -19,19 +18,3 @@ pluginManagement {
 include ":app"
 
 apply from: "${settings.ext.flutterSdkPath}/packages/flutter_tools/gradle/app_plugin_loader.gradle"
-=======
-    repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
-    }
-}
-
-plugins {
-    id "dev.flutter.flutter-plugin-loader" version "1.0.0"
-    id "com.android.application" version "7.3.0" apply false
-    id "org.jetbrains.kotlin.android" version "1.7.10" apply false
-}
-
-include ":app"
->>>>>>> 669fbe4a0548be91efb3e165e3887da0f991edca
