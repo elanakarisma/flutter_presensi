@@ -17,7 +17,7 @@ class DashboardScreen extends StatefulWidget {
 
 class _DashboardScreenState extends State<DashboardScreen> {
   String nik = "", token = "", name = "", dept = "", imgUrl = "";
-  late Future<Presensi> futurePresensi;
+  bool isMasuk = true;
 
   //get user data
   Future<void> getUserData() async {
@@ -61,10 +61,75 @@ class _DashboardScreenState extends State<DashboardScreen> {
     }
   }
 
+  // metode untuk menyimpan status check-in/check-out
+  Future<void> saveStatusMasuk() async{
+    final prefs = await sharedPreferences.getInstance();
+    prefs.setBool('isMasuk', isMasuk);
+  }
+
+  // metode untuk memuat status check-in/check-out
+  Future<bool> loadStatusMasuk() async{
+    final prefs = await  {
+
+      isMasuk = prefs.getBool('isMasuk') ?? true;
+    });
+  }
+
+  Future<void> recordAttendence() async {
+    Navigator.pop(context);
+    // endpoint
+    const String endpointMasuk = 'https://presensi.spilme.id/entry';
+    const String endpointKeluar = 'https://presensi.spilme.id/entry';
+
+    final endpoint = isMasuk ? endpointMasuk : endpointKeluar;
+    final requestBody = isMasuk
+        ? {
+          'nik' : nik,
+          'tanggal': getTodayDate(),
+          'jam_masuk': getTime(),
+          'lokasi_masuk': 'polbeng',
+        }
+        : {
+          'nik' : nik,
+          'tanggal': getTodayDate(),
+          'jam_keluar': getTime(),
+          'lokasi_keluar': 'polbeng',
+        };
+    
+    final response = await http.post(
+      Uri.parse(endpoint),
+      headers: {
+        'Authorization': 'Bearer $token',
+        'Content-Type': 'application/json',
+      },
+      body: jsonEncode(requestBody),
+    );
+
+    if (response.statusCode == 200) {
+      final responseBody = jsonDecode(response.body);
+      // ignore: use_build_context_synchronously
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(responseBody['message'])),
+      );
+      setState(() {
+        isMasuk = !isMasuk; 
+        saveStatusMasuk(); // simpan status absensi
+      });
+      //refresh informasi absensi
+      fetchPresensi(nik, getTodayDate());
+    } else {
+      // ignore: use_build_context_synchronously
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Failed to record attendance')),
+      );
+    }
+  }
+
   @override
   void initState() {
     super.initState();
     getUserData();
+    loadStatusMasuk();
   }
 
   @override
@@ -357,7 +422,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   ),
                   const SizedBox(width: 8), // Spacing between icon and text
                   Text(
-                    'Tekan untuk presensi keluar',
+                    'Tekan untuk presensi ${isMasuk?'masuk':'keluar'}',
                     style: GoogleFonts.manrope(
                         fontSize: 20, fontWeight: FontWeight.bold),
                   ),
@@ -507,7 +572,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Presensi Masuk',
+            Text('Presensi ${isMasuk ? 'Masuk' : 'Pulang'}',
                 style: GoogleFonts.manrope(
                   fontSize: 24,
                   color: Colors.black,
@@ -529,13 +594,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Tanggal Masuk',
+                    Text('Tanggal ${isMasuk ? 'Masuk' : 'Pulang'}',
                         style: GoogleFonts.manrope(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                           color: const Color(0xff111111),
                         )),
-                    Text('Selasa, 23 Agustus 2023',
+                    Text(getToday(),
                         style: GoogleFonts.manrope(
                           fontSize: 14,
                           color: const Color(0xff707070),
@@ -560,13 +625,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Jam Masuk',
+                    Text('Jam  ${isMasuk ? 'Masuk' : 'Pulang'}',
                         style: GoogleFonts.manrope(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                           color: const Color(0xff111111),
                         )),
-                    Text('07:30:23',
+                    Text(
+                      getTime(),
                         style: GoogleFonts.manrope(
                           fontSize: 14,
                           color: const Color(0xff707070),
@@ -604,16 +670,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
             const SizedBox(height: 16),
             ElevatedButton(
-              onPressed: () {
-                // Implement your check-in logic
-              },
+              onPressed: recordAttendence,
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(double.infinity, 50),
                 backgroundColor: Colors.blue,
                 foregroundColor: Colors.white,
               ),
               child: Text(
-                'Hadir',
+                'Simpan',
                 style: GoogleFonts.manrope(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,

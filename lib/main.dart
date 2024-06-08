@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:presensi/screen/splash_screen.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
-void main() {
-  runApp(const MainApp());
-}
+  Future<void> main() async {
+    await initializeDateFormatting('id', null);
+    runApp(const MainApp());
+  }
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
