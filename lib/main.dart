@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:presensi/screen/splash_screen.dart';
+import 'package:flutter_presensi/screen/splash_screen.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
   Future<void> main() async {

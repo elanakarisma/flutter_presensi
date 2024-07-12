@@ -1,3 +1,5 @@
+// import 'dart:convert';
+
 import 'package:intl/intl.dart';
 
 //get today date
@@ -34,8 +36,9 @@ import 'package:intl/intl.dart';
     } else {
       return 'Pulang Cepat';
     }
+  }
 
-    //Format tanggal: hari, tgl bulan tahun
+ //Format tanggal: hari, tgl bulan tahun
   String getToday(){
     DateTime now = DateTime.now();
     final String formattedDate = DateFormat('EEEE, dd MMMM yyyy', 'id').format(now); // Format hari, tgl bulan tahun
@@ -47,5 +50,4 @@ import 'package:intl/intl.dart';
     DateTime now = DateTime.now();
     final String formattedTime = DateFormat('HH:mm').format(now);
     return formattedTime;
-
   }
